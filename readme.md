@@ -1,1 +1,1 @@
-stow -t ~/.config .config -v
+this is WIP, do not use
