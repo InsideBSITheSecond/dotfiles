@@ -1,6 +1,7 @@
 #!/bin/fish
 sudo pacman -S --noconfirm --needed waybar rofi nvim hyprpaper nemo keepassxc \
-    cmake meson cpio pkg-config git g++ gcc base-devel
+    cmake meson cpio pkg-config git g++ gcc base-devel inotify-tools sassc \
+    wireplumber
 
 # - (yay)
 git clone https://aur.archlinux.org/yay.git /tmp/yay
@@ -8,7 +9,8 @@ cd /tmp/yay
 makepkg -si
 
 # Hyprshade
-yay -S hyprshade
+yay -S hyprshade \
+    headsetcontrol
 
 # Hyprland plugins:
 # - (hyprpm)
