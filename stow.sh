@@ -6,3 +6,5 @@ mv ~/.config/rofi ~/.config/rofi.bkp
 mv ~/.config/waybar ~/.config/waybar.bkp
 
 stow -t ~/.config .config -v
+
+echo "you should run: hyprctl dispatch exit"

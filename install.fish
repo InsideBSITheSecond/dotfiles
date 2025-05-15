@@ -31,3 +31,6 @@ fisher install paldepind/projectdo
 
 # Tide configure
 tide configure
+
+# Last touch: stowing the dotfiles
+bash stow.sh
