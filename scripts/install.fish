@@ -5,8 +5,9 @@ sudo pacman -S --noconfirm --needed waybar rofi nvim hyprpaper nemo keepassxc \
 
 # - (yay)
 git clone https://aur.archlinux.org/yay.git /tmp/yay
-cd /tmp/yay
+pushd /tmp/yay
 makepkg -si
+popd
 
 # Hyprshade
 yay -S hyprshade \
@@ -33,4 +34,4 @@ fisher install paldepind/projectdo
 tide configure
 
 # Last touch: stowing the dotfiles
-bash stow.sh
+bash scripts/stow.sh

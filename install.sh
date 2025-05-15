@@ -7,4 +7,4 @@ sudo pacman -S --noconfirm --needed fish
 chsh -s $(which fish)
 
 # Start install
-fish install.fish
+fish scripts/install.fish
