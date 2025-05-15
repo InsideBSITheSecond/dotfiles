@@ -1,6 +1,6 @@
 #!/bin/fish
 sudo pacman -S --noconfirm --needed waybar rofi nvim hyprpaper nemo keepassxc \
-    cmake meson cpio pkg-config git g++ gcc base-devel inotify-tools sassc \
+    cmake meson cpio pkg-config git gcc base-devel inotify-tools sassc \
     wireplumber
 
 # - (yay)
