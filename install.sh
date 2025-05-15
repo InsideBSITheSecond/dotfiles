@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # Needed programs
-sudo pacman -S fish waybar rofi nvim hyprpaper hyprpm nemo keepassxc
+sudo pacman -S fish waybar rofi nvim hyprpaper nemo keepassxc \
+    cmake meson cpio pkg-config git g++ gcc
 
 # Hyprland plugins:
 # - (hyprpm)
