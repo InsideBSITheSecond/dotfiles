@@ -5,7 +5,7 @@
 # in order for the dotfiles to work properly
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-sudo pacman -S --noconfirm --needed waybar rofi nvim hyprpaper nemo keepassxc \
+sudo pacman -S --noconfirm --needed waybar rofi nvim hyprpaper nemo keepassxc cava \
     cmake meson cpio pkg-config git gcc base-devel inotify-tools sassc \
     ttf-nerd-fonts-symbols \
     wireplumber
