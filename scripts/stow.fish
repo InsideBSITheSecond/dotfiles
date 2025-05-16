@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/fish
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # Final touch of the installation, it will backup old configs 
