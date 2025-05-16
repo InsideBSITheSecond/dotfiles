@@ -13,4 +13,5 @@ sudo pacman -S --noconfirm --needed fish
 chsh -s $(which fish)
 
 # Start install
-fish scripts/install.fish
+mkdir logs
+fish scripts/entry.fish
