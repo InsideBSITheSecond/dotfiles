@@ -1,4 +1,10 @@
 #!/bin/fish
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# This is the main install script, it will install all the dependencies
+# in order for the dotfiles to work properly
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
 sudo pacman -S --noconfirm --needed waybar rofi nvim hyprpaper nemo keepassxc \
     cmake meson cpio pkg-config git gcc base-devel inotify-tools sassc \
     wireplumber
