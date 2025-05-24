@@ -6,7 +6,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 sudo pacman -S --noconfirm --needed waybar rofi nvim hyprpaper nemo keepassxc cava \
-    cmake meson cpio pkg-config git gcc base-devel inotify-tools sassc \
+    cmake meson cpio pkg-config git stow gcc base-devel inotify-tools sassc \
     ttf-nerd-fonts-symbols \
     wireplumber
 
@@ -41,4 +41,4 @@ fisher install paldepind/projectdo
 tide configure
 
 # Last touch: stowing the dotfiles
-fish stow.sh
+fish stow.fish
