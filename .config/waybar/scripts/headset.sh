@@ -24,7 +24,7 @@ if [[ "$1" == "status" ]]; then
 #        fi
 #        echo -n " </span>"
     elif grep -qxF "$d2" <<< "$device"; then
-        echo -n "󱡏" #earbuds icon
+        echo -n "<span font='24px' rise='3000'>󱡏 </span>" #earbuds icon
 #        echo -n "<span font='24px' rise='3000'>"
 #        if [[ "$status" == "BATTERY_AVAILABLE" ]]; then
 #            echo -n "󰁾 $level" #battery 50% icon
