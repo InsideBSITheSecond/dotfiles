@@ -7,7 +7,7 @@
 
 sudo pacman -S --noconfirm --needed waybar rofi nvim hyprpaper nemo keepassxc cava \
     cmake meson cpio pkg-config git stow gcc base-devel inotify-tools sassc \
-    ttf-nerd-fonts-symbols \
+    ttf-nerd-fonts-symbols fzf \
     wireplumber
 
 # - (yay)
