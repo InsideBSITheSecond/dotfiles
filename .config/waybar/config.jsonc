@@ -17,6 +17,7 @@
         "modules-right": [
             "group/volume",
             "custom/headset",
+            "custom/bluetooth",
             "gamemode",
             "tray",
             "systemd-failed-units",
@@ -28,6 +29,12 @@
         "custom/headset": {
             "exec": "~/.config/waybar/scripts/headset.sh status",
             "on-click": "~/.config/waybar/scripts/headset.sh switch",
+            "interval": 1
+        },
+
+        "custom/bluetooth": {
+            "exec": "~/.config/waybar/scripts/bluetooth.sh",
+            "on-click": "~/.config/waybar/scripts/bluetooth.sh connect",
             "interval": 1
         },
     },
