@@ -13,28 +13,28 @@
         },
         "modules": [
             "custom/power", // First element is the "group leader" and won't ever be hidden
-            "custom/quit",
-            "custom/lock",
-            "custom/reboot",
+            "custom/reboot-arch",
+            "custom/reboot-windows",
+            "custom/logout", 
         ]
     },
-    "custom/quit": {
-        "format": "󰗼",
+    "custom/logout": {
+        "format": "<span font='24px' rise='3000'>󰗼 </span>{}",
         "tooltip": false,
         "on-click": "hyprctl dispatch exit"
     },
-    "custom/lock": {
-        "format": "󰍁",
+    "custom/reboot-arch": {
+        "format": "<span font='24px' rise='3000'>󰣇 </span>{}",
         "tooltip": false,
-        "on-click": "swaylock"
+        "on-click": "pkexec ~/.config/waybar/scripts/systemd-reboot.sh arch"
     },
-    "custom/reboot": {
-        "format": "󰜉",
+    "custom/reboot-windows": {
+        "format": "<span font='24px' rise='3000'> </span>{}",
         "tooltip": false,
-        "on-click": "reboot"
+        "on-click": "pkexec ~/.config/waybar/scripts/systemd-reboot.sh win"
     },
     "custom/power": {
-        "format": "",
+        "format": "<span font='24px' rise='3000'> </span>{}",
         "tooltip": false,
         "on-click": "shutdown now"
     },
