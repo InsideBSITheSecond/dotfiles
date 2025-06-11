@@ -1,19 +1,17 @@
 [
     {
         "layer": "top",
-
-        "include" : ["~/.config/waybar/base-modules.jsonc"],
-
+        "include": [
+            "~/.config/waybar/base-modules.jsonc"
+        ],
         "modules-left": [
             "user",
             "mpris",
             "hyprland/window"
         ],
-
         "modules-center": [
             "hyprland/workspaces"
         ],
-
         "modules-right": [
             "group/volume",
             "custom/headset",
@@ -25,47 +23,27 @@
             "clock",
             "group/group-power"
         ],
-
-        "custom/headset": {
-            "exec": "~/.config/waybar/scripts/headset.sh status",
-            "on-click": "~/.config/waybar/scripts/headset.sh switch",
-            "interval": 1
-        },
-
-        "custom/bluetooth": {
-            "exec": "~/.config/waybar/scripts/bluetooth.sh",
-            "on-click": "~/.config/waybar/scripts/bluetooth.sh connect",
-            "interval": 1
-        },
     },
     {
         "position": "bottom",
-
         //"include" : ["~/.config/waybar/base-modules.jsonc"],
-
         "modules-left": [
             "load"
         ],
-
         "modules-center": [
             "memory"
         ],
-
         "modules-right": [
             "disk"
         ],
-
         "load": {
             "interval": 1,
             "format": "cpu: 1m: ({load1}%) 5m: ({load5}%) 15m: ({load15}%)"
         },
-
         "memory": {
             "interval": 30,
             "format": "ram: {used:0.1f} G / {total:0.1f} G"
         },
-
-
         "disk": {
             "interval": 30,
             "format": "disk: {specific_used:0.2f} GB / {specific_total:0.2f} GB",

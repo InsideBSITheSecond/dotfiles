@@ -3,7 +3,6 @@
         "icon-size": 21,
         "spacing": 10
     },
-
     "group/group-power": {
         "orientation": "horizontal",
         "drawer": {
@@ -15,7 +14,7 @@
             "custom/power", // First element is the "group leader" and won't ever be hidden
             "custom/reboot-arch",
             "custom/reboot-windows",
-            "custom/logout", 
+            "custom/logout",
         ]
     },
     "custom/logout": {
@@ -38,7 +37,6 @@
         "tooltip": false,
         "on-click": "shutdown now"
     },
-
     "hyprland/window": {
         "format": "👉 {}",
         "rewrite": {
@@ -47,10 +45,8 @@
         },
         "separate-outputs": true
     },
-    
     "hyprland/workspaces": {
         "format": "<sub>{icon}</sub>",
-        
         // THIS IS RESPONSIBLE FOR THE ISSUE WITH SUGGESTION POPUPS IN CODE EDITORS, SINCE IT SHIFTS
         // THE WAYBAR HEIGHT IT CAUSES A GLITCH WHERE THEY VANISH AND WAYBAR GOES BLBLB
         //"format": "<sub>{icon}</sub>\n{windows}",
@@ -75,8 +71,6 @@
             "7": "7",
             "8": "8",
             "9": "9",
-
-
             "11": "1",
             "12": "2",
             "13": "3",
@@ -86,8 +80,6 @@
             "17": "7",
             "18": "8",
             "19": "9",
-
-
             "21": "1",
             "22": "2",
             "23": "3",
@@ -112,7 +104,6 @@
             "5": ["DP-1"] // Always show a workspace with name '5', on outputs 'eDP-1' and 'DP-2' if it does not exists
         }*/
     },
-
     "mpris": {
         "format": "DEFAULT: {player_icon} {dynamic}",
         "format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
@@ -123,9 +114,10 @@
         "status-icons": {
             "paused": "⏸"
         },
-        "ignored-players": ["firefox"]
+        "ignored-players": [
+            "firefox"
+        ]
     },
-
     "group/volume": {
         "oritentation": "vertical",
         "modules": [
@@ -133,7 +125,6 @@
             "cava",
         ]
     },
-
     "wireplumber": {
         "format": "{volume}% {icon}",
         "format-muted": "",
@@ -144,7 +135,6 @@
             ""
         ]
     },
-
     "user": {
         "format": "{user} (up {work_H}H)",
         "interval": 60,
@@ -152,7 +142,6 @@
         "width": 30,
         "icon": true
     },
-
     "systemd-failed-units": {
         "hide-on-ok": false, // Do not hide if there is zero failed units.
         "format": "✗ {nr_failed}",
@@ -160,7 +149,6 @@
         "system": true, // Monitor failed systemwide units.
         "user": false // Ignore failed user units.
     },
-
     "privacy": {
         "icon-spacing": 4,
         "icon-size": 18,
@@ -183,11 +171,9 @@
             }
         ]
     },
-
     "clock": {
         "format-alt": "{:%a, %d. %b  %H:%M}"
     },
-
     "gamemode": {
         "format": "{glyph}",
         "format-alt": "{glyph} {count}",
@@ -200,7 +186,6 @@
         "tooltip": true,
         "tooltip-format": "Games running: {count}"
     },
-
     "cava": {
         //"cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
         "framerate": 30,
@@ -218,9 +203,28 @@
         "waves": true,
         "noise_reduction": 0.77,
         "input_delay": 3,
-        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ],
         "actions": {
             "on-click-right": "mode"
-            }
+        }
+    },
+    "custom/headset": {
+        "exec": "~/.config/waybar/scripts/headset.sh status",
+        "on-click": "~/.config/waybar/scripts/headset.sh switch",
+        "interval": 1
+    },
+    "custom/bluetooth": {
+        "exec": "~/.config/waybar/scripts/bluetooth.sh",
+        "on-click": "~/.config/waybar/scripts/bluetooth.sh connect",
+        "interval": 1
     },
 }
