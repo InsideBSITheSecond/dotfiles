@@ -10,8 +10,8 @@ MouseArea {
     property bool targetMenuOpen : false
     hoverEnabled : true
     acceptedButtons : Qt.LeftButton | Qt.RightButton
-    implicitWidth : 20
-    implicitHeight : 20
+    implicitWidth : 25
+    implicitHeight : 25
     onClicked : event => {
         switch (event.button) {
             case Qt.LeftButton:

@@ -70,7 +70,12 @@ Scope {
           Layout.preferredWidth: 500
           Layout.preferredHeight: 150
 
-          RowLayout {          
+          RowLayout {
+            VolumeWidget {
+              step: 0.05
+              maxVolume: 1.5
+            }
+
             SysTray {
               vertical: false
               Layout.fillHeight: false
@@ -85,6 +90,11 @@ Scope {
             }
           }
         }
+      }
+
+      BottomBar {
+        //property var modelData
+        screen: modelData
       }
     }
   }

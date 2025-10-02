@@ -109,6 +109,7 @@ Column {
       Text {
         text: displayTextForWorkspace(modelData)
         color: workspaceRoot.color
+        font.pointSize: 18
 
         MouseArea {
           anchors.fill: parent
