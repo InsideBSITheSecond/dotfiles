@@ -58,6 +58,8 @@ Column {
       return " "
     else if (w.id === myMonitor.activeWorkspace.id)
       return " "
+    else if (w.urgent)
+      return " "
     else
       return ((parseInt(w.id) - 1) % 10 + 1) + " "
   }
