@@ -19,7 +19,7 @@ PanelWindow {
   anchors.bottom: true
   anchors.left: true
   anchors.right: true
-  implicitHeight: 28
+  implicitHeight: 22
   color: Qt.rgba(0,0,0,0.55)
 
   // === Settings you may change ===
@@ -31,18 +31,19 @@ PanelWindow {
     id: row
     anchors.fill: parent
     anchors.margins: 8
-    spacing: 16
+    spacing: 45
+    property int fontSize: 12
 
     // cpu
-    Text { id: cpuTxt;   font.family: "monospace"; color: "#ddd"; text: `CPU ${cpuPct.toFixed(0)}%` }
+    Text { id: cpuTxt; font.pixelSize: row.fontSize;   font.family: "monospace"; color: "#ddd"; text: `CPU ${cpuPct.toFixed(0)}%` }
     // mem
-    Text { id: memTxt;   font.family: "monospace"; color: "#ddd"; text: `Mem ${memPct.toFixed(0)}%` }
+    Text { id: memTxt; font.pixelSize: row.fontSize;   font.family: "monospace"; color: "#ddd"; text: `Mem ${memPct.toFixed(0)}%` }
     // swap
-    Text { id: swapTxt;  font.family: "monospace"; color: "#ddd"; text: swapTotal>0 ? `Swap ${swapPct.toFixed(0)}%` : "Swap —" }
+    Text { id: swapTxt; font.pixelSize: row.fontSize;  font.family: "monospace"; color: "#ddd"; text: swapTotal>0 ? `Swap ${swapPct.toFixed(0)}%` : "Swap —" }
     // net
-    Text { id: netTxt;   font.family: "monospace"; color: "#ddd"; text: `Net ${fmtRate(txRate)}↑ ${fmtRate(rxRate)}↓` }
+    Text { id: netTxt; font.pixelSize: row.fontSize;   font.family: "monospace"; color: "#ddd"; text: `Net ${fmtRate(txRate)}↑ ${fmtRate(rxRate)}↓` }
     // disk
-    Text { id: diskTxt;  font.family: "monospace"; color: "#ddd"; text: diskUsage.length ? `Disk ${diskUsage}` : "Disk …" }
+    Text { id: diskTxt; font.pixelSize: row.fontSize;  font.family: "monospace"; color: "#ddd"; text: `Disk /: ${diskUsedPct}%` }
     // clock (simple)
     //Text { id: clockTxt; font.family: "monospace"; color: "#ddd"; text: Qt.formatDateTime(new Date(), "HH:mm:ss") }
   }
@@ -65,7 +66,8 @@ PanelWindow {
   property double _lastTx: 0
 
   // Disk
-  property string diskUsage: ""
+  property int diskUsedPct: 0
+  property string diskLine: ""
 
   // === Helpers ===
   function fmtRate(bps) {
@@ -129,12 +131,35 @@ PanelWindow {
   FileView { id: rxFile; path: `/sys/class/net/${bar.iface}/statistics/rx_bytes`; watchChanges: false }
   FileView { id: txFile; path: `/sys/class/net/${bar.iface}/statistics/tx_bytes`; watchChanges: false }
 
-  // Disk via `df -h /`
-  Process { id: dfProc; command: ["/bin/sh","-c","df -h / | awk 'NR==2{print $5 \" of \" $2}'"] }
-  StdioCollector {
-    id: dfCol
-    //process: dfProc
-    //onStdout: (buf) => diskUsage = String.fromUtf8(buf).trim()
+  Timer {
+    id: diskTimer
+    interval: 1000
+    running: true
+    repeat: true
+    onTriggered: dfProc.exec(["df", "-P", "-B1", "/"])
+  }
+
+  Process {
+    id: dfProc
+    // option A: keep command here and flip running=true elsewhere
+    // command: ["df", "-P", "-B1", "/"]
+
+    stdout: StdioCollector {
+      // df exits quickly, so buffering until end is fine
+      waitForEnd: true
+      onStreamFinished: {
+        // POSIX format: Filesystem 1B-blocks Used Available Use% Mounted on
+        const lines = text.trim().split(/\n/)
+        const root = lines.find(l => /\s\/$/.test(l))
+        if (!root) return
+
+        const cols = root.trim().split(/\s+/)
+        // Use% is usually the 5th column like "37%"
+        const useCol = cols.find(c => /%$/.test(c))
+        if (useCol) diskUsedPct = parseInt(useCol.replace("%",""))
+        diskLine = root
+      }
+    }
   }
 
   // === Poller ===

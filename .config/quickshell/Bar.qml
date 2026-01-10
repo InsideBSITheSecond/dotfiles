@@ -67,7 +67,7 @@ Scope {
         Rectangle {
           id: barRight
           color: pal.window
-          Layout.preferredWidth: 500
+          Layout.preferredWidth: 650
           Layout.preferredHeight: 150
 
           RowLayout {
@@ -87,6 +87,15 @@ Scope {
               id: clock
               color: pal.text
               
+            }
+
+            PowerDrawer {
+              // Optional tweaks:
+              pad: 6
+              gap: 10
+              animMs: 500
+              //leaderText: "⏻"
+              fontFamily: "JetBrainsMono Nerd Font" // or whatever you use
             }
           }
         }
