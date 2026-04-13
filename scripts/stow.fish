@@ -11,6 +11,7 @@ mv ~/.config/rofi ~/.config/rofi.bkp
 mv ~/.config/waybar ~/.config/waybar.bkp
 mv ~/.config/nvim ~/.config/nvim.bkp
 
-stow -t ~/.config .config -v
+stow -t ~/.config ../.config -v
 
 hyprctl reload
+
