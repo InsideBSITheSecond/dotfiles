@@ -18,7 +18,7 @@ makepkg -si
 popd
 
 # Hyprshade
-yes | yay -S --sudoloop hyprshade \
+yes | yay -S --sudoloop --noconfirm --needed hyprshade \
     headsetcontrol
 
 # Hyprland plugins:
