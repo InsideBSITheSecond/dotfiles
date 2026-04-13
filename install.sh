@@ -6,6 +6,9 @@
 # (since it includes some fish-y syntax)
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
+# Making sure we are up to date
+git pull
+
 # Install fish
 sudo pacman -S --noconfirm --needed fish
 
