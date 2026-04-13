@@ -10,7 +10,7 @@
 git pull
 
 # Install fish
-sudo pacman -S --noconfirm --needed fish
+sudo pacman -S --noconfirm --needed fish which
 
 # Make it default
 chsh -s $(which fish)
