@@ -134,12 +134,12 @@ Item {
         // Arch
         IconButton {
           label: ""
-          onTriggered: runner.exec(["pkexec",  "/home/insidebsi/.config/waybar/scripts/systemd-reboot.sh", "arch"])
+          onTriggered: runner.exec(["pkexec",  "/home/insidebsi/.config/quickshell/scripts/systemd-reboot.sh", "arch"])
         }
         // Windows
         IconButton {
           label: ""
-          onTriggered: runner.exec(["pkexec",  "/home/insidebsi/.config/waybar/scripts/systemd-reboot.sh", "win"])
+          onTriggered: runner.exec(["pkexec",  "/home/insidebsi/.config/quickshell/scripts/systemd-reboot.sh", "win"])
         }
         // Logout
         IconButton {
